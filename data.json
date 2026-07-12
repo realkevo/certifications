@@ -1,13 +1,13 @@
 {
   "certifications": [
     {
-      "title": "Professional Certification",
-      "issuer": "Issuing Organization",
-      "icon": "🎓",
-      "issueDate": "2024-01-15",
-      "expiryDate": "2027-01-15",
-      "description": "A professional certification demonstrating expertise in the field",
-      "link": "https://verify-certificate.example.com"
+      "title": "Professional Healthcare Certification",
+      "issuer": "American Institute of Healthcare",
+      "icon": "🏥",
+      "issueDate": "2023-06-15",
+      "expiryDate": "2026-06-15",
+      "description": "Advanced certification in healthcare administration and management",
+      "link": "certificate-AIH-1-4-000081%20(1).pdf"
     }
   ]
 }
