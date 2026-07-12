@@ -1,58 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Certifications</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f3f4f6;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    overflow:hidden;
+}
+
+header{
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+#viewer{
+    width:100%;
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+img{
+    width:100%;
+    height:auto;
+}
+
+iframe{
+    width:100%;
+    height:90vh;
+    border:none;
+}
+
+.error{
+    color:red;
+    padding:40px;
+    text-align:center;
+}
+</style>
+
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>🎓 My Certifications</h1>
-            <p>Professional certifications and credentials</p>
-        </header>
 
-        <!-- Statistics -->
-        <section class="statistics">
-            <div class="stat-card">
-                <div class="stat-number" id="totalCerts">0</div>
-                <div class="stat-label">Total Certifications</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="activeCerts">0</div>
-                <div class="stat-label">Active</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="expiredCerts">0</div>
-                <div class="stat-label">Expired</div>
-            </div>
-        </section>
+<div class="container">
 
-        <!-- Search and Filter -->
-        <section class="controls">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search certifications...">
-            </div>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="active">Active</button>
-                <button class="filter-btn" data-filter="expired">Expired</button>
-            </div>
-        </section>
+<header>Certificate</header>
 
-        <!-- Certifications Grid -->
-        <section class="certifications-grid" id="certificationsGrid">
-            <!-- Certifications will be loaded here -->
-        </section>
+<div id="viewer">
+Loading...
+</div>
 
-        <!-- No Results Message -->
-        <div id="noResults" class="no-results" style="display: none;">
-            <p>No certifications found. Try adjusting your search or filters.</p>
-        </div>
-    </div>
+</div>
 
-    <script src="script.js"></script>
+<script>
+
+const possibleFiles=[
+"certificate-AIH-1-4-000081 (1).pdf",
+"certificate.pdf",
+"certificate.png",
+"certificate.jpg",
+"certificate.jpeg",
+"certificate.webp",
+"certificate.gif",
+"certificate.svg"
+];
+
+const viewer=document.getElementById("viewer");
+
+async function loadCertificate(){
+
+    for(const file of possibleFiles){
+
+        try{
+
+            const response=await fetch(file,{method:"HEAD"});
+
+            if(response.ok){
+
+                const extension=file.split(".").pop().toLowerCase();
+
+                if(extension==="pdf"){
+
+                    viewer.innerHTML=
+                    `<iframe src="${file}"></iframe>`;
+
+                }else{
+
+                    viewer.innerHTML=
+                    `<img src="${file}" alt="Certificate">`;
+
+                }
+
+                return;
+
+            }
+
+        }catch(e){}
+    }
+
+    viewer.innerHTML=
+    '<div class="error">No certificate file found.</div>';
+
+}
+
+loadCertificate();
+
+</script>
+
 </body>
 </html>
