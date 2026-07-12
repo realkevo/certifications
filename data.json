@@ -1,0 +1,13 @@
+{
+  "certifications": [
+    {
+      "title": "Professional Certification",
+      "issuer": "Issuing Organization",
+      "icon": "🎓",
+      "issueDate": "2024-01-15",
+      "expiryDate": "2027-01-15",
+      "description": "A professional certification demonstrating expertise in the field",
+      "link": "https://verify-certificate.example.com"
+    }
+  ]
+}

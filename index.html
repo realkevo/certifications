@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Certifications</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎓 My Certifications</h1>
+            <p>Professional certifications and credentials</p>
+        </header>
+
+        <!-- Statistics -->
+        <section class="statistics">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCerts">0</div>
+                <div class="stat-label">Total Certifications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="activeCerts">0</div>
+                <div class="stat-label">Active</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="expiredCerts">0</div>
+                <div class="stat-label">Expired</div>
+            </div>
+        </section>
+
+        <!-- Search and Filter -->
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search certifications...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="expired">Expired</button>
+            </div>
+        </section>
+
+        <!-- Certifications Grid -->
+        <section class="certifications-grid" id="certificationsGrid">
+            <!-- Certifications will be loaded here -->
+        </section>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>No certifications found. Try adjusting your search or filters.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
